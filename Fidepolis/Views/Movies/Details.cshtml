@@ -1,0 +1,7 @@
+@model MovieDetailVm
+@{ ViewData["Title"] = Model.Movie.Title; }
+<a class="back" asp-action="Index">← Volver a cartelera</a>
+<section class="detail-header"><img class="detail-poster" src="@Model.Movie.Poster" alt="Póster de @Model.Movie.Title" /><div><p class="eyebrow">AHORA EN CARTELERA</p><h1>@Model.Movie.Title</h1><div class="metadata"><span class="pill">@Model.Movie.Classification</span><span>@Model.Movie.Genre</span><span>@Model.Movie.DurationMinutes minutos</span></div><h2>Sinopsis</h2><p class="body-copy">@Model.Movie.Synopsis</p></div></section>
+<section class="section-head"><div><p class="eyebrow">ELEGÍ TU HORARIO</p><h2>Funciones disponibles</h2></div></section>
+@if (!Model.Showtimes.Any()) { <div class="notice">No hay funciones futuras disponibles para esta película.</div> }
+else { <div class="showtime-list">@foreach (var info in Model.Showtimes){ <article class="showtime"><div><strong>@info.Showtime.StartsAt.ToString("dddd dd/MM/yyyy", new System.Globalization.CultureInfo("es-CR"))</strong><div class="muted">@info.Showtime.StartsAt.ToString("hh:mm tt") · @info.Showtime.Room · @info.Showtime.Language</div></div><div class="price">₡@info.Showtime.Price.ToString("N0") <small>por entrada</small></div>@if (info.IsOpen && info.Available > 0) { <a class="btn btn-accent" asp-controller="Seats" asp-action="Select" asp-route-id="@info.Showtime.Id">Elegir asientos</a> } else { <span class="pill">Agotada / iniciada</span> }</article> }</div> }

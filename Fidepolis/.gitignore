@@ -1,0 +1,8 @@
+**/bin/
+**/obj/
+.vs/
+.vscode/*.user
+AppData/*.json
+*.user
+*.suo
+.DS_Store

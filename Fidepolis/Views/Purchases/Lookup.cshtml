@@ -1,0 +1,3 @@
+@model SearchPurchaseVm
+@{ ViewData["Title"] = "Consultar compra"; }
+<div class="lookup-panel"><p class="eyebrow">MIS ENTRADAS</p><h1>Consultá tu compra</h1><p class="muted">Ingresá el código de confirmación que recibiste al completar tu compra.</p><form asp-action="Lookup" method="post">@Html.AntiForgeryToken()<label asp-for="Code">Código de confirmación</label><input asp-for="Code" placeholder="FID-XXXXXXXXXX" autocomplete="off" /><span asp-validation-for="Code" class="inline-error"></span><button class="btn btn-accent btn-full" type="submit">Buscar compra</button></form></div>
