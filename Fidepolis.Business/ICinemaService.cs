@@ -1,5 +1,5 @@
-using Fidepolis.Models;
-namespace Fidepolis.Services;
+using Fidepolis.Entities;
+namespace Fidepolis.Business;
 public interface ICinemaService
 {
     IReadOnlyList<Movie> SearchMovies(string? text, string? genre);

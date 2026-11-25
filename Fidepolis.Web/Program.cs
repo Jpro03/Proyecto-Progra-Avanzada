@@ -1,9 +1,10 @@
 using Fidepolis.Data;
-using Fidepolis.Services;
+using Fidepolis.Business;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
-builder.Services.AddSingleton<ICinemaRepository, JsonCinemaRepository>();
+var dataDirectory = Path.Combine(builder.Environment.ContentRootPath, "AppData");
+builder.Services.AddSingleton<ICinemaRepository>(_ => new JsonCinemaRepository(dataDirectory));
 builder.Services.AddSingleton<ICinemaService, CinemaService>();
 var app = builder.Build();
 if (!app.Environment.IsDevelopment())

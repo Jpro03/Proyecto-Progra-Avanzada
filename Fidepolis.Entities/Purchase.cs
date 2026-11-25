@@ -1,4 +1,4 @@
-namespace Fidepolis.Models;
+namespace Fidepolis.Entities;
 public sealed class Purchase
 {
     public string Code { get; set; } = string.Empty;

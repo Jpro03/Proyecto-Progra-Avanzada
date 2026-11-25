@@ -1,7 +1,7 @@
-using Fidepolis.Services;
-using Fidepolis.ViewModels;
+using Fidepolis.Business;
+using Fidepolis.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-namespace Fidepolis.Controllers;
+namespace Fidepolis.Web.Controllers;
 public sealed class PurchasesController(ICinemaService cinema) : Controller
 {
     [HttpGet]
@@ -70,6 +70,6 @@ public sealed class PurchasesController(ICinemaService cinema) : Controller
         TempData["CancelResult"] = cinema.Cancel(code) ? "Compra cancelada. Los asientos volvieron a estar disponibles." : "No se pudo cancelar. Puede que la función haya comenzado o que la compra ya esté cancelada.";
         return RedirectToAction(nameof(Details), new { code });
     }
-    private ReceiptVm ReceiptVm(Fidepolis.Models.Purchase purchase, Fidepolis.Models.Showtime s) =>
+    private ReceiptVm ReceiptVm(Fidepolis.Entities.Purchase purchase, Fidepolis.Entities.Showtime s) =>
         new() { Purchase = purchase, Showtime = s, Movie = cinema.FindMovie(s.MovieId)! };
 }

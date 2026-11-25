@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fidepolis.Entities\Fidepolis.Entities.csproj" />
+    <ProjectReference Include="..\Fidepolis.Data\Fidepolis.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Fidepolis.Business</RootNamespace>
+  </PropertyGroup>
+
+</Project>

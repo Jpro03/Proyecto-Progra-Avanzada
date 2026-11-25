@@ -1,8 +1,8 @@
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using Fidepolis.Data;
-using Fidepolis.Models;
-namespace Fidepolis.Services;
+using Fidepolis.Entities;
+namespace Fidepolis.Business;
 public sealed class CinemaService(ICinemaRepository repository) : ICinemaService
 {
     private readonly object _purchaseLock = new();

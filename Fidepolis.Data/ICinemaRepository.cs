@@ -1,4 +1,4 @@
-using Fidepolis.Models;
+using Fidepolis.Entities;
 namespace Fidepolis.Data;
 public interface ICinemaRepository
 {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using Fidepolis.Models;
-namespace Fidepolis.ViewModels;
+using Fidepolis.Entities;
+namespace Fidepolis.Web.ViewModels;
 public sealed class CatalogVm
 {
     public string Search { get; init; } = "";

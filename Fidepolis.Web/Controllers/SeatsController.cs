@@ -1,7 +1,7 @@
-using Fidepolis.Services;
-using Fidepolis.ViewModels;
+using Fidepolis.Business;
+using Fidepolis.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-namespace Fidepolis.Controllers;
+namespace Fidepolis.Web.Controllers;
 public sealed class SeatsController(ICinemaService cinema) : Controller
 {
     [HttpGet]

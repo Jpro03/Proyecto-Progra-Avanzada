@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-namespace Fidepolis.Controllers;
+namespace Fidepolis.Web.Controllers;
 public sealed class HomeController : Controller
 {
     public IActionResult Error() => View();

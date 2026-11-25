@@ -1,5 +1,5 @@
 using System.Text.Json;
-using Fidepolis.Models;
+using Fidepolis.Entities;
 namespace Fidepolis.Data;
 public sealed class JsonCinemaRepository : ICinemaRepository
 {
@@ -7,9 +7,8 @@ public sealed class JsonCinemaRepository : ICinemaRepository
     private readonly IReadOnlyList<Movie> _movies;
     private readonly IReadOnlyList<Showtime> _showtimes;
     private static readonly JsonSerializerOptions Options = new() { WriteIndented = true, PropertyNameCaseInsensitive = true };
-    public JsonCinemaRepository(IWebHostEnvironment environment)
+    public JsonCinemaRepository(string dataDirectory)
     {
-        var dataDirectory = Path.Combine(environment.ContentRootPath, "AppData");
         Directory.CreateDirectory(dataDirectory);
         _path = Path.Combine(dataDirectory, "purchases.json");
         _movies =
